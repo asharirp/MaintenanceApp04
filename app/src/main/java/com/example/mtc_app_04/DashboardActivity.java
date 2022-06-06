@@ -53,7 +53,7 @@ public class DashboardActivity extends AppCompatActivity {
         buttonCorrectiveMonitoring.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CorrectiveListActivity.class));
+                startActivity(new Intent(getApplicationContext(),CorrectiveReportListActivity.class));
             }
         });
     }

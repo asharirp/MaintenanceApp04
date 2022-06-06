@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,13 +25,17 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     CorrectiveReportListHelperClass correctiveReportListHelperClass;
     ArrayList<CorrectiveReportClass> list;
+    Button buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_corrective_report_list);
 
+        Toast.makeText(CorrectiveReportListActivity.this, "Launch Successfully", Toast.LENGTH_SHORT).show();
+
         recyclerView = findViewById(R.id.correctiveList);
+        buttonBack = findViewById(R.id.button_Back_CorrectiveMonitoring2);
         databaseReference = FirebaseDatabase.getInstance("https://maintenance-app-861a8-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("correctivemtcdata");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -55,6 +63,13 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
             }
         });
 
