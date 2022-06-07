@@ -2,9 +2,11 @@ package com.example.mtc_app_04;
 
 public class CorrectiveReportClass {
 
-    String convDate,  eqName, inputTime, plant, probDesc, prodLine, statusReport;
+    Long convDate;
 
-    public String getConvDate() {
+    String eqName, inputTime, plant, probDesc, prodLine, statusReport;
+
+    public Long getConvDate() {
         return convDate;
     }
 

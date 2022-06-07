@@ -97,7 +97,7 @@ public class CorrectiveReportFormActivity extends AppCompatActivity {
                 String eqDate = dateButton.getText().toString();
                 String eqTime = timeButton.getText().toString();
                 String sumDateTime = eqDate + " " + eqTime + ":00";
-                String statusReport = "0";
+                int statusReport = 0;
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                 try {

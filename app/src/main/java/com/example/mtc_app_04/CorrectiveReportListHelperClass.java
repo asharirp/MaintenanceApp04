@@ -33,7 +33,7 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         CorrectiveReportClass correctiveReportClass = list.get(position);
-        holder.convDate.setText(correctiveReportClass.getConvDate());
+        holder.convDate.setText(correctiveReportClass.getConvDate().toString());
         holder.eqName.setText(correctiveReportClass.getEqName());
         holder.inputTime.setText(correctiveReportClass.getInputTime());
         holder.plant.setText(correctiveReportClass.getPlant());
