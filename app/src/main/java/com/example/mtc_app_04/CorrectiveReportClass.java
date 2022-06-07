@@ -2,34 +2,30 @@ package com.example.mtc_app_04;
 
 public class CorrectiveReportClass {
 
-    String eqName, eqNo, plant, prodLine, inputTime, convDate, probDesc, statusReport;
+    String convDate,  eqName, inputTime, plant, probDesc, prodLine, statusReport;
+
+    public String getConvDate() {
+        return convDate;
+    }
 
     public String getEqName() {
         return eqName;
-    }
-
-    public String getEqNo() {
-        return eqNo;
-    }
-
-    public String getPlant() {
-        return plant;
-    }
-
-    public String getProdLine() {
-        return prodLine;
     }
 
     public String getInputTime() {
         return inputTime;
     }
 
-    public String getConvDate() {
-        return convDate;
+    public String getPlant() {
+        return plant;
     }
 
     public String getProbDesc() {
         return probDesc;
+    }
+
+    public String getProdLine() {
+        return prodLine;
     }
 
     public String getStatusReport() {

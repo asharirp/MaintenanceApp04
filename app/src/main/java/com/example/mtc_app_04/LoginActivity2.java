@@ -87,7 +87,7 @@ public class LoginActivity2 extends AppCompatActivity {
         monitoringBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Dashboard2Activity.class));
+                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             }
         });
 

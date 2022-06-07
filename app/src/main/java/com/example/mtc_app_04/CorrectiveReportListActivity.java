@@ -50,7 +50,7 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
 
                     CorrectiveReportClass correctiveReportClass = dataSnapshot.getValue(CorrectiveReportClass.class);
                     list.add(correctiveReportClass);
