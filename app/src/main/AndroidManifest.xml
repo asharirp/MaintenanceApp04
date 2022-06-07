@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mtc_App_04">
         <activity
+            android:name=".Dashboard2Activity"
+            android:exported="false" />
+        <activity
             android:name=".CorrectiveReportListActivity"
             android:exported="false" />
         <activity

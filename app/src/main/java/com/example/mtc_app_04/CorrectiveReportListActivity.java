@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class CorrectiveReportListActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerview;
     DatabaseReference databaseReference;
     CorrectiveReportListHelperClass correctiveReportListHelperClass;
     ArrayList<CorrectiveReportClass> list;
@@ -32,17 +32,19 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_corrective_report_list);
 
-        Toast.makeText(CorrectiveReportListActivity.this, "Launch Successfully", Toast.LENGTH_SHORT).show();
 
-        recyclerView = findViewById(R.id.correctiveList);
+
+        recyclerview = findViewById(R.id.correctiveList);
         buttonBack = findViewById(R.id.button_Back_CorrectiveMonitoring2);
         databaseReference = FirebaseDatabase.getInstance("https://maintenance-app-861a8-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("correctivemtcdata");
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview.setHasFixedSize(true);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         list = new ArrayList<>();
         correctiveReportListHelperClass = new CorrectiveReportListHelperClass(this,list);
-        recyclerView.setAdapter(correctiveReportListHelperClass);
+        recyclerview.setAdapter(correctiveReportListHelperClass);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,10 +62,13 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
+
+
         });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +77,8 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
             }
         });
+
+        Toast.makeText(CorrectiveReportListActivity.this, "Launch Successfully", Toast.LENGTH_SHORT).show();
 
     }
 }

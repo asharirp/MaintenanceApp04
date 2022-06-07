@@ -68,6 +68,4 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
 
         }
     }
-
-
 }
