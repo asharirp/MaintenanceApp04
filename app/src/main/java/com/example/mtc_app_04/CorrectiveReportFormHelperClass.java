@@ -2,10 +2,11 @@ package com.example.mtc_app_04;
 
 public class CorrectiveReportFormHelperClass {
 
-   String eqName, prodLine, plant, inputTime, probDesc, eqDate, eqTime, statusReport;
+   String eqName, prodLine, plant, inputTime, probDesc, eqDate, eqTime;
    Long convDate;
+   int statusReport;
 
-   public CorrectiveReportFormHelperClass(String eqName, String prodLine, String plant, String inputTime, String probDesc, String eqDate, String eqTime, Long convDate , String statusReport) {
+   public CorrectiveReportFormHelperClass(String eqName, String prodLine, String plant, String inputTime, String probDesc, String eqDate, String eqTime, Long convDate , int statusReport) {
       this.eqName = eqName;
       this.prodLine = prodLine;
       this.plant = plant;
@@ -74,11 +75,11 @@ public class CorrectiveReportFormHelperClass {
       this.eqTime = eqTime;
    }
 
-   public String getStatusReport() {
+   public int getStatusReport() {
       return statusReport;
    }
 
-   public void setStatusReport(String statusReport) {
+   public void setStatusReport(int statusReport) {
       this.statusReport = statusReport;
    }
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class EquipmentListActivity extends AppCompatActivity {
 
-    RecyclerView recycleview;
+    RecyclerView recyclerview;
     DatabaseReference databaseReference;
     EquipmentListHelperClass equipmentListHelperClass;
     ArrayList<EquipmentClass> list;
@@ -27,14 +27,14 @@ public class EquipmentListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_equipment_list);
 
-        recycleview = findViewById(R.id.eqList);
+        recyclerview = findViewById(R.id.eqList);
         databaseReference = FirebaseDatabase.getInstance("https://maintenance-app-861a8-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("eqEntry");
-        recycleview.setHasFixedSize(true);
-        recycleview.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview.setHasFixedSize(true);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
         equipmentListHelperClass = new EquipmentListHelperClass(this, list);
-        recycleview.setAdapter(equipmentListHelperClass);
+        recyclerview.setAdapter(equipmentListHelperClass);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override

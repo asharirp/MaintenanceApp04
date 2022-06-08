@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<CorrectiveReportListHelperClass.MyViewHolder2> {
+public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<CorrectiveReportListHelperClass.MyViewHolder> {
 
     Context context;
 
@@ -24,22 +24,21 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
 
     @NonNull
     @Override
-    public MyViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.itemcorrective,parent,false);
-        return new MyViewHolder2 (view);
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.itemcorrective,parent,false);
+        return new MyViewHolder (v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         CorrectiveReportClass correctiveReportClass = list.get(position);
+        holder.convDate.setText(correctiveReportClass.getConvDate().toString());
         holder.eqName.setText(correctiveReportClass.getEqName());
-        holder.eqNo.setText(correctiveReportClass.getEqNo());
-        holder.plant.setText(correctiveReportClass.getPlant());
-        holder.prodLine.setText(correctiveReportClass.getProdLine());
         holder.inputTime.setText(correctiveReportClass.getInputTime());
-        holder.convDate.setText(correctiveReportClass.getConvDate());
+        holder.plant.setText(correctiveReportClass.getPlant());
         holder.probDesc.setText(correctiveReportClass.getProbDesc());
+        holder.prodLine.setText(correctiveReportClass.getProdLine());
         holder.statusReport.setText(correctiveReportClass.getStatusReport());
 
     }
@@ -49,15 +48,14 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
         return list.size();
     }
 
-    public static class MyViewHolder2 extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView eqName, eqNo, plant, prodLine, inputTime, convDate, probDesc, statusReport;
+        TextView convDate, eqName, inputTime, plant, probDesc, prodLine, statusReport;
 
-        public MyViewHolder2(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             eqName = itemView.findViewById(R.id.eqNameCorrectiveList);
-            eqNo = itemView.findViewById(R.id.eqNoCorrectiveList);
             plant = itemView.findViewById(R.id.eqPlantCorrectiveList);
             prodLine = itemView.findViewById(R.id.eqLineCorrectiveList);
             inputTime = itemView.findViewById(R.id.submitTimeCorrectiveList);
