@@ -19,17 +19,5 @@ public class ProblemDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_problem_detail);
         TextView probDescText = findViewById(R.id.tv_problemdetailProbDesc);
 
-
-        String username = "Username not set";
-
-        Bundle extras = getIntent().getExtras();
-        if(extras != null){
-
-            username = extras.getString("username");
-        }
-
-        probDescText    .setText(username);
-
-
     }
 }

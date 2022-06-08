@@ -26,7 +26,6 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
     CorrectiveReportListHelperClass correctiveReportListHelperClass;
     ArrayList<CorrectiveReportClass> list;
     Button buttonBack;
-    private CorrectiveReportListHelperClass.RecyclerViewCorrectiveClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
         buttonBack = findViewById(R.id.button_Back_CorrectiveMonitoring2);
 
         list = new ArrayList<>();
-        correctiveReportListHelperClass = new CorrectiveReportListHelperClass(this, list,listener);
+        correctiveReportListHelperClass = new CorrectiveReportListHelperClass(this, list);
         recyclerview.setAdapter(correctiveReportListHelperClass);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -71,30 +70,14 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+                startActivity(new Intent(getApplicationContext(),Dashboard2Activity.class));
             }
         });
 
         Toast.makeText(CorrectiveReportListActivity.this, "Launch Successfully", Toast.LENGTH_SHORT).show();
-
-        setAdapter();
         
     }
 
-    private void setAdapter() {
-        setOnClickListener();
-    }
 
-    private void setOnClickListener() {
-        listener = new CorrectiveReportListHelperClass.RecyclerViewCorrectiveClickListener() {
-            @Override
-            public void onClick(View v, int position) {
-//                Intent intent = new Intent(getApplicationContext(),CorrectiveReportListActivity.class);
-//                intent.putExtra("inputTime",list.get(position).getInputTime());
-//                startActivity(intent);
-                startActivity(new Intent(getApplicationContext(),CorrectiveReportListActivity.class));
-            }
-        };
-    }
 
 }

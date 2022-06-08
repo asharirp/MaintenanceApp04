@@ -6,10 +6,13 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,17 +24,10 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
 
     private ArrayList<CorrectiveReportClass> list;
 
-    //Detail activity purpose
-    private RecyclerViewCorrectiveClickListener listener;
-
-
-
-    //Detail activity purpose
-    public CorrectiveReportListHelperClass(Context context, ArrayList<CorrectiveReportClass> list, RecyclerViewCorrectiveClickListener listener) {
+    public CorrectiveReportListHelperClass(Context context, ArrayList<CorrectiveReportClass> list) {
         this.context = context;
         this.list = list;
-        //Detail activity purpose
-        this.listener = listener;
+
     }
 
 
@@ -99,9 +95,10 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
     }
 
     //Detail activity purpose
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView convDate, eqName, inputTime, plant, probDesc, prodLine, statusReport;
+        private OnItemClickListener listener;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -114,14 +111,15 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
             probDesc = itemView.findViewById(R.id.probDescCorrectiveList);
             statusReport = itemView.findViewById(R.id.statusCorrectiveList);
 
-            itemView.setOnClickListener(this);
-
         }
 
-        //Detail activity purpose
-        @Override
-        public void onClick(View itemView) {
-            listener.onClick(itemView, getAdapterPosition());
+        public interface OnItemClickListener{
+            void onItemClick(DataSnapshot dataSnapshot, int position);
+        }
+
+        public void setOnItemClickListener (OnItemClickListener listener){
+            this.listener = listener;
+
         }
     }
 }
