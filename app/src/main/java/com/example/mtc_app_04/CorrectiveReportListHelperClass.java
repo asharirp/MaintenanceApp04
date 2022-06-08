@@ -1,6 +1,8 @@
 package com.example.mtc_app_04;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +11,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<CorrectiveReportListHelperClass.MyViewHolder> {
 
     Context context;
 
-    ArrayList<CorrectiveReportClass> list;
+    private ArrayList<CorrectiveReportClass> list;
 
-    public CorrectiveReportListHelperClass(Context context, ArrayList<CorrectiveReportClass> list) {
+    //Detail activity purpose
+    private RecyclerViewCorrectiveClickListener listener;
+
+
+
+    //Detail activity purpose
+    public CorrectiveReportListHelperClass(Context context, ArrayList<CorrectiveReportClass> list, RecyclerViewCorrectiveClickListener listener) {
         this.context = context;
         this.list = list;
+        //Detail activity purpose
+        this.listener = listener;
     }
+
 
     @NonNull
     @Override
@@ -29,18 +42,50 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
         return new MyViewHolder (v);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         CorrectiveReportClass correctiveReportClass = list.get(position);
-        holder.convDate.setText(correctiveReportClass.getConvDate().toString());
         holder.eqName.setText(correctiveReportClass.getEqName());
-        holder.inputTime.setText(correctiveReportClass.getInputTime());
         holder.plant.setText(correctiveReportClass.getPlant());
         holder.probDesc.setText(correctiveReportClass.getProbDesc());
         holder.prodLine.setText(correctiveReportClass.getProdLine());
-        holder.statusReport.setText(correctiveReportClass.getStatusReport());
 
+//        //Coba convert millis to date (Prob Time)
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy [HH:mm]");
+        String txconvDate = sdf.format(correctiveReportClass.getConvDate());
+        holder.convDate.setText(txconvDate);
+
+        //Coba convert millis to date(Input Time)
+
+        long lginputTime = Long.parseLong(correctiveReportClass.getInputTime());
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyy [HH:mm]");
+        String txinputTime = sdf2.format(lginputTime);
+        holder.inputTime.setText(txinputTime);
+
+
+//        if (correctiveReportClass.getStatusReport() == 0) {
+//            holder.statusReport.setText("Belum diperbaiki");
+//        } else if (correctiveReportClass.getStatusReport() == 1) {
+//            holder.statusReport.setText("On Progress");
+//        }
+
+        switch (correctiveReportClass.getStatusReport()) {
+            case 0 :
+                holder.statusReport.setText("Belum diperbaiki");
+                holder.statusReport.setTextColor(Color.parseColor("#C50000"));
+                break;
+            case 1 :
+                holder.statusReport.setText("Dalam Perbaikan");
+                holder.statusReport.setTextColor(Color.parseColor("#FFC107"));
+                break;
+            case 2 :
+                holder.statusReport.setText("Selesai Diperbaiki");
+                holder.statusReport.setTextColor(Color.parseColor("#006C05"));
+                break;
+            default: holder.statusReport.setText("Null");
+        }
     }
 
     @Override
@@ -48,7 +93,13 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
         return list.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public interface RecyclerViewCorrectiveClickListener{
+        void onClick(View v, int position);
+
+    }
+
+    //Detail activity purpose
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView convDate, eqName, inputTime, plant, probDesc, prodLine, statusReport;
 
@@ -63,7 +114,14 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
             probDesc = itemView.findViewById(R.id.probDescCorrectiveList);
             statusReport = itemView.findViewById(R.id.statusCorrectiveList);
 
+            itemView.setOnClickListener(this);
 
+        }
+
+        //Detail activity purpose
+        @Override
+        public void onClick(View itemView) {
+            listener.onClick(itemView, getAdapterPosition());
         }
     }
 }

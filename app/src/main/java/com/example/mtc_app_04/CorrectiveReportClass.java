@@ -3,8 +3,8 @@ package com.example.mtc_app_04;
 public class CorrectiveReportClass {
 
     Long convDate;
-
-    String eqName, inputTime, plant, probDesc, prodLine, statusReport;
+    int statusReport;
+    String eqName, inputTime, plant, probDesc, prodLine;
 
     public Long getConvDate() {
         return convDate;
@@ -30,7 +30,7 @@ public class CorrectiveReportClass {
         return prodLine;
     }
 
-    public String getStatusReport() {
+    public int getStatusReport() {
         return statusReport;
     }
 }

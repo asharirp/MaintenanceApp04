@@ -108,12 +108,12 @@ public class CorrectiveReportFormActivity extends AppCompatActivity {
                 }
 
 
-                CorrectiveReportFormHelperClass helperClass = new CorrectiveReportFormHelperClass(eqName, prodLine, plant, probDesc, inputTime, eqDate, eqTime, convDate, statusReport);
+                CorrectiveReportFormHelperClass helperClass = new CorrectiveReportFormHelperClass(eqName, prodLine, plant, inputTime,probDesc, eqDate, eqTime, convDate, statusReport);
 
                 reference.child(inputTime).setValue(helperClass);
 
                 Toast.makeText(CorrectiveReportFormActivity.this, "Submitted Successfully", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+                startActivity(new Intent(getApplicationContext(),Dashboard2Activity.class));
 
             }
         });

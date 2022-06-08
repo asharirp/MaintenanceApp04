@@ -11,40 +11,48 @@ import android.widget.TextView;
 
 public class Dashboard2Activity extends AppCompatActivity {
 
-    TextView textView_eqEntry, textView_probReport, textView_eqList, textView_reportList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard2);
 
-        textView_eqEntry = findViewById(R.id.button_dashboardeqEntry);
-        textView_probReport = findViewById(R.id.button_dashboardProblemReport);
-        textView_eqList = findViewById(R.id.button_dashboardeqList);
-        textView_reportList = findViewById(R.id.button_dashboardCorrectiveList);
 
-        textView_eqEntry.setOnClickListener(new View.OnClickListener() {
+        View boxCorrectiveList = findViewById(R.id.ly_dashboardCorrectiveList);
+        View boxEquipmentList = findViewById(R.id.ly_dashboardEqList);
+        View boxEquipmentEntry = findViewById(R.id.ly_dashboardEqEntry);
+        View boxProblemReport = findViewById(R.id.ly_dashboardProblemReport);
+
+
+        boxEquipmentEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),EquipmentEntryActivity.class));
             }
         });
 
-        textView_probReport.setOnClickListener(new View.OnClickListener() {
+        boxProblemReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),CorrectiveReportFormActivity.class));
             }
         });
 
-        textView_eqList.setOnClickListener(new View.OnClickListener() {
+        boxEquipmentList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),EquipmentListActivity.class));
             }
         });
 
-        textView_reportList.setOnClickListener(new View.OnClickListener() {
+//        textView_reportList.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(),CorrectiveReportListActivity.class));
+//            }
+//        });
+
+        boxCorrectiveList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),CorrectiveReportListActivity.class));
