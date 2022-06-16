@@ -6,11 +6,13 @@
         <entry key="..\:/Mtc_App_04/app/src/main/res/drawable/button_bg.xml" value="0.3135" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/drawable/circle.xml" value="0.2" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_list.xml" value="0.25" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_list2.xml" value="0.3625" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_monitoring.xml" value="0.31354166666666666" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_report_form.xml" value="0.33" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_report_list.xml" value="0.22" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_corrective_solution_form.xml" value="0.3625" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_dashboard.xml" value="0.33" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_dashboard2.xml" value="0.2703125" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_equipment_entry.xml" value="0.3625" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_equipment_list.xml" value="0.22" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_login.xml" value="0.75" />
@@ -18,9 +20,13 @@
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_monitoring.xml" value="0.3625" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/activity_view.xml" value="0.3625" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/correctivelist.xml" value="0.31354166666666666" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/equipmentitem.xml" value="0.25" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/fragment_descfragment.xml" value="0.1" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/fragment_recfragment.xml" value="0.2703125" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/itemcorrective.xml" value="0.25" />
+        <entry key="..\:/Mtc_App_04/app/src/main/res/layout/singlerowdesign.xml" value="0.2703125" />
         <entry key="..\:/Mtc_App_04/app/src/main/res/layout/style_spinner.xml" value="0.1322463768115942" />
         <entry key="..\:/Users/engine5/AndroidStudioProjects/MaintenanceApp04/app/src/main/res/layout/activity_corrective_report_form.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/engine5/AndroidStudioProjects/MaintenanceApp04/app/src/main/res/layout/activity_corrective_report_list.xml" value="0.4" />

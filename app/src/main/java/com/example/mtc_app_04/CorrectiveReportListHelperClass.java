@@ -20,9 +20,50 @@ import java.util.Date;
 
 public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<CorrectiveReportListHelperClass.MyViewHolder> {
 
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+
+        TextView convDate, eqName, inputTime, plant, probDesc, prodLine, statusReport;
+
+        public MyViewHolder(@NonNull View itemView, RecycleViewClickInterface listener) {
+            super(itemView);
+
+            eqName = itemView.findViewById(R.id.eqNameCorrectiveList);
+            plant = itemView.findViewById(R.id.eqPlantCorrectiveList);
+            prodLine = itemView.findViewById(R.id.eqLineCorrectiveList);
+            inputTime = itemView.findViewById(R.id.submitTimeCorrectiveList);
+            convDate = itemView.findViewById(R.id.troubleTimeCorrectiveList);
+            probDesc = itemView.findViewById(R.id.probDescCorrectiveList);
+            statusReport = itemView.findViewById(R.id.statusCorrectiveList);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+        }
+    }
+
+
     Context context;
 
     private ArrayList<CorrectiveReportClass> list;
+    private RecycleViewClickInterface mListener;
+
+    public interface RecycleViewClickInterface{
+        void onItemClick(int position);
+    }
+
+    public void setRecycleViewClickInterface(RecycleViewClickInterface listener){
+        mListener = listener;
+    }
+
 
     public CorrectiveReportListHelperClass(Context context, ArrayList<CorrectiveReportClass> list) {
         this.context = context;
@@ -35,7 +76,7 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.itemcorrective,parent,false);
-        return new MyViewHolder (v);
+        return new MyViewHolder (v, mListener);
     }
 
     @SuppressLint("ResourceAsColor")
@@ -89,37 +130,7 @@ public class CorrectiveReportListHelperClass extends RecyclerView.Adapter<Correc
         return list.size();
     }
 
-    public interface RecyclerViewCorrectiveClickListener{
-        void onClick(View v, int position);
 
-    }
 
-    //Detail activity purpose
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView convDate, eqName, inputTime, plant, probDesc, prodLine, statusReport;
-        private OnItemClickListener listener;
-
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            eqName = itemView.findViewById(R.id.eqNameCorrectiveList);
-            plant = itemView.findViewById(R.id.eqPlantCorrectiveList);
-            prodLine = itemView.findViewById(R.id.eqLineCorrectiveList);
-            inputTime = itemView.findViewById(R.id.submitTimeCorrectiveList);
-            convDate = itemView.findViewById(R.id.troubleTimeCorrectiveList);
-            probDesc = itemView.findViewById(R.id.probDescCorrectiveList);
-            statusReport = itemView.findViewById(R.id.statusCorrectiveList);
-
-        }
-
-        public interface OnItemClickListener{
-            void onItemClick(DataSnapshot dataSnapshot, int position);
-        }
-
-        public void setOnItemClickListener (OnItemClickListener listener){
-            this.listener = listener;
-
-        }
-    }
 }

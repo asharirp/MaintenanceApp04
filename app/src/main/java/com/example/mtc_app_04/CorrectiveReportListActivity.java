@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,13 +21,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CorrectiveReportListActivity extends AppCompatActivity {
+public class CorrectiveReportListActivity extends AppCompatActivity implements  RecycleViewClickInterface{
+
 
     RecyclerView recyclerview;
     DatabaseReference databaseReference;
     CorrectiveReportListHelperClass correctiveReportListHelperClass;
     ArrayList<CorrectiveReportClass> list;
     Button buttonBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,9 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
 
         list = new ArrayList<>();
         correctiveReportListHelperClass = new CorrectiveReportListHelperClass(this, list);
+
         recyclerview.setAdapter(correctiveReportListHelperClass);
+
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,5 +85,13 @@ public class CorrectiveReportListActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
 
+    }
+
+    @Override
+    public void onLongClick(int position) {
+
+    }
 }

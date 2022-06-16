@@ -22,6 +22,7 @@ public class Dashboard2Activity extends AppCompatActivity {
         View boxEquipmentList = findViewById(R.id.ly_dashboardEqList);
         View boxEquipmentEntry = findViewById(R.id.ly_dashboardEqEntry);
         View boxProblemReport = findViewById(R.id.ly_dashboardProblemReport);
+        View boxProblemHistory = findViewById(R.id.ly_dashboardProblemHistory);
 
 
         boxEquipmentEntry.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,13 @@ public class Dashboard2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),EquipmentListActivity.class));
+            }
+        });
+
+        boxProblemHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),CorrectiveList2.class));
             }
         });
 

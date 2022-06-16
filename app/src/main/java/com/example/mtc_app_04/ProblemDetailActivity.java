@@ -17,7 +17,6 @@ public class ProblemDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem_detail);
-        TextView probDescText = findViewById(R.id.tv_problemdetailProbDesc);
 
     }
 }
